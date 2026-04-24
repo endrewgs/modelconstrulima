@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Construlima Engenharia — Pintura e Restauração de Fachada em Condomínios de médio e alto padrão. Desde 2003, mais de 170.000 m² de fachadas executadas em São Paulo e interior.">
+    <meta name="theme-color" content="#1A2B3C">
+    <title>Construlima Engenharia | Pintura e Restauração de Fachada</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --azul-aco: #2E7BB5;
+            --azul-aco-escuro: #1E5A85;
+            --azul-aco-claro: #E8F1F8;
+            --azul-profundo: #1A2B3C;
+            --vermelho: #CC3333;
+            --vermelho-hover: #A82828;
+            --neutro-100: #F7F9FB;
+            --neutro-200: #EDF1F5;
+            --neutro-300: #D1D9E2;
+            --neutro-400: #8A9AAF;
+            --neutro-500: #5A6D82;
+            --neutro-600: #3A4D62;
+            --branco: #FFFFFF;
+            --whatsapp: #25D366;
+            --whatsapp-hover: #1EBE5A;
+            --sombra-suave: 0 4px 24px rgba(26, 43, 60, 0.08);
+            --sombra-media: 0 8px 40px rgba(26, 43, 60, 0.12);
+            --sombra-forte: 0 16px 64px rgba(26, 43, 60, 0.18);
+            --transicao: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--azul-profundo);
+            background: var(--branco);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(26, 43, 60, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transicao);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(46, 123, 181, 0.08);
+            box-shadow: var(--sombra-suave);
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            transition: var(--transicao);
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .header-nav a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.02em;
+            position: relative;
+            padding: 4px 0;
+            transition: var(--transicao);
+        }
+
+        .header.scrolled .header-nav a {
+            color: var(--neutro-600);
+        }
+
+        .header-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--azul-aco);
+            transition: var(--transicao);
+        }
+
+        .header-nav a:hover {
+            color: var(--branco);
+        }
+
+        .header.scrolled .header-nav a:hover {
+            color: var(--azul-aco);
+        }
+
+        .header-nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--azul-aco);
+            color: var(--branco);
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            transition: var(--transicao);
+            border: none;
+            cursor: pointer;
+        }
+
+        .header-cta:hover {
+            background: var(--azul-aco-escuro);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(46, 123, 181, 0.3);
+        }
+
+        .header-cta svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--branco);
+            margin: 5px 0;
+            transition: var(--transicao);
+            border-radius: 2px;
+        }
+
+        .header.scrolled .menu-toggle span {
+            background: var(--azul-profundo);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--azul-profundo);
+        }
+
+        .hero-video-container {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .hero-video-container video,
+        .hero-video-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            padding: 120px 24px 80px;
+            text-align: center;
+            color: var(--branco);
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--azul-aco-claro);
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-title {
+            font-size: clamp(2.25rem, 6vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 28px;
+            letter-spacing: -0.03em;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-title .accent {
+            color: var(--azul-aco-claro);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 300;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.92);
+            max-width: 640px;
+            margin: 0 auto 40px;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--azul-aco);
+            color: var(--branco);
+            padding: 18px 36px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            transition: var(--transicao);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(46, 123, 181, 0.35);
+        }
+
+        .hero-cta:hover {
+            background: var(--azul-aco-escuro);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(46, 123, 181, 0.45);
+        }
+
+        .hero-cta svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.6875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            animation: bounce 2s infinite;
+        }
+
+        .hero-scroll svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        /* ===== MÉTRICAS ===== */
+        .metrics {
+            background: var(--neutro-100);
+            border-bottom: 1px solid var(--neutro-200);
+            position: relative;
+            z-index: 10;
+        }
+
+        .metrics-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 64px 24px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 24px;
+            position: relative;
+        }
+
+        .metric-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+            background: var(--neutro-300);
+        }
+
+        .metric-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--azul-aco);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--neutro-500);
+            letter-spacing: 0.02em;
+        }
+
+        /* ===== SEÇÃO SOBRE ===== */
+        .about {
+            background: var(--branco);
+            position: relative;
+        }
+
+        .about-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 120px 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--azul-aco);
+            margin-bottom: 20px;
+        }
+
+        .about-title {
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            font-weight: 700;
+            color: var(--azul-profundo);
+            margin-bottom: 28px;
+            line-height: 1.15;
+        }
+
+        .about-text {
+            font-size: 1.0625rem;
+            color: var(--neutro-600);
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .about-feature-icon {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background: var(--azul-aco-claro);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--azul-aco);
+        }
+
+        .about-feature-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .about-feature-text {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--neutro-600);
+            padding-top: 8px;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-visual-frame {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--sombra-forte);
+        }
+
+        .about-visual-frame img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+        }
+
+        .about-visual-badge {
+            position: absolute;
+            bottom: -24px;
+            left: -24px;
+            background: var(--azul-profundo);
+            color: var(--branco);
+            padding: 28px 32px;
+            border-radius: 12px;
+            box-shadow: var(--sombra-media);
+        }
+
+        .about-visual-badge-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--azul-aco);
+            line-height: 1;
+        }
+
+        .about-visual-badge-text {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 4px;
+        }
+
+        /* ===== SERVIÇOS (DARK MODE) ===== */
+        .services {
+            background: var(--azul-profundo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(46, 123, 181, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .services-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 120px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services .section-label {
+            color: var(--azul-aco);
+        }
+
+        .services .section-title {
+            color: var(--branco);
+        }
+
+        .services .section-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 40px 32px;
+            transition: var(--transicao);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--azul-aco);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transicao);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(46, 123, 181, 0.3);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--azul-aco);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--branco);
+            transition: var(--transicao);
+        }
+
+        .service-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .service-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--branco);
+            margin-bottom: 12px;
+        }
+
+        .service-desc {
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+
+        /* ===== PORTFÓLIO ===== */
+        .portfolio {
+            background: var(--branco);
+            position: relative;
+        }
+
+        .portfolio-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 120px 24px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .portfolio-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(26, 43, 60, 0.92) 0%,
+                rgba(26, 43, 60, 0.5) 40%,
+                rgba(26, 43, 60, 0.15) 100%
+            );
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 28px;
+            opacity: 1;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--azul-aco-claro);
+            background: rgba(46, 123, 181, 0.25);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            width: fit-content;
+        }
+
+        .portfolio-title {
+            font-size: 1.0625rem;
+            font-weight: 600;
+            color: var(--branco);
+            line-height: 1.4;
+        }
+
+        /* ===== DIFERENCIAIS (DARK MODE) ===== */
+        .differentials {
+            background: var(--azul-profundo);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .differentials::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(46, 123, 181, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .differentials-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 120px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .differentials .section-label {
+            color: var(--azul-aco);
+        }
+
+        .differentials .section-title {
+            color: var(--branco);
+        }
+
+        .differentials .section-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 64px;
+        }
+
+        .diff-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 40px;
+            transition: var(--transicao);
+        }
+
+        .diff-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(46, 123, 181, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .diff-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--vermelho);
+            margin-bottom: 16px;
+            letter-spacing: 0.05em;
+        }
+
+        .diff-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--branco);
+            margin-bottom: 12px;
+        }
+
+        .diff-text {
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--azul-aco) 0%, var(--azul-aco-escuro) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .cta-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 100px 24px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--branco);
+            margin-bottom: 20px;
+        }
+
+        .cta-text {
+            font-size: 1.0625rem;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--whatsapp);
+            color: var(--branco);
+            padding: 18px 36px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: var(--transicao);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.35);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.45);
+            background: var(--whatsapp-hover);
+        }
+
+        .cta-button svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .cta-contact {
+            margin-top: 32px;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .cta-contact strong {
+            color: var(--branco);
+            font-weight: 600;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--azul-profundo);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 80px 24px 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 48px;
+            margin-bottom: 64px;
+        }
+
+        .footer-brand img {
+            height: 56px;
+            width: auto;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .footer-brand p {
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.7;
+            max-width: 280px;
+        }
+
+        .footer-col-title {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 24px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .footer-links a {
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.6);
+            transition: var(--transicao);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--azul-aco);
+        }
+
+        .footer-links svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.5;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-copyright {
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.5);
+            transition: var(--transicao);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-social a:hover {
+            background: var(--azul-aco);
+            color: var(--branco);
+            border-color: var(--azul-aco);
+            transform: translateY(-2px);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--whatsapp);
+            color: var(--branco);
+            padding: 14px 24px;
+            border-radius: 100px;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.35);
+            transition: var(--transicao);
+            border: none;
+            cursor: pointer;
+            animation: pulse-whatsapp 2s infinite;
+        }
+
+        .float-whatsapp:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.45);
+            background: var(--whatsapp-hover);
+        }
+
+        .float-whatsapp svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        @keyframes pulse-whatsapp {
+            0% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.35); }
+            50% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.55); }
+            100% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.35); }
+        }
+
+        /* ===== ANIMAÇÕES DE ENTRADA ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ===== RESPONSIVO ===== */
+        @media (max-width: 1024px) {
+            .about-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .about-visual {
+                order: -1;
+            }
+
+            .about-visual-frame img {
+                height: 360px;
+            }
+
+            .about-visual-badge {
+                left: 16px;
+                bottom: -16px;
+                padding: 20px 24px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .portfolio-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+                aspect-ratio: 16/9;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+            }
+
+            .header-cta {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero-content {
+                padding: 100px 20px 60px;
+            }
+
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .metrics-inner {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+                padding: 48px 20px;
+            }
+
+            .metric-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .metric-item:nth-child(odd)::after {
+                display: block;
+                right: -8px;
+                height: 40%;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-item:nth-child(1) {
+                grid-column: span 1;
+                grid-row: span 1;
+                aspect-ratio: 4/3;
+            }
+
+            .diff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .float-whatsapp span {
+                display: none;
+            }
+
+            .float-whatsapp {
+                padding: 14px;
+                border-radius: 50%;
+            }
+
+            .about-inner,
+            .services-inner,
+            .portfolio-inner,
+            .differentials-inner,
+            .cta-inner,
+            .footer-inner {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .about-inner,
+            .services-inner,
+            .portfolio-inner,
+            .differentials-inner {
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+
+            .cta-inner {
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.875rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9375rem;
+            }
+
+            .hero-cta {
+                padding: 16px 28px;
+                font-size: 0.9375rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .metric-number {
+                font-size: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .diff-card {
+                padding: 28px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="#" class="header-brand">
+                <img src="img/logo-horizontal.jpeg" alt="Construlima Engenharia" class="header-logo">
+            </a>
+            <nav class="header-nav">
+                <a href="#sobre">Sobre</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#portfolio">Portfólio</a>
+                <a href="#diferenciais">Diferenciais</a>
+                <a href="#contato" class="header-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    Orçamento
+                </a>
+            </nav>
+            <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.header-nav').classList.toggle('mobile-open')">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-video-container">
+            <video autoplay muted loop playsinline poster="img/hero-fallback.jpg">
+                <source src="video/hero-bg.mp4" type="video/mp4">
+            </video>
+            <img src="img/hero-fallback.jpg" alt="Fachada de edifício" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-eyebrow">Desde 2003</span>
+            <h1 class="hero-title">
+                Pintura e Restauração<br>
+                de <span class="accent">Fachadas</span> em<br>
+                Condomínios
+            </h1>
+            <p class="hero-subtitle">
+                Especialistas em condomínios de médio e alto padrão em São Paulo e interior. 
+                Mais de 170.000 m² de fachadas executadas com excelência técnica e acabamento superior.
+            </p>
+            <a href="https://wa.me/5515996547841?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20para%20pintura%2Frestaura%C3%A7%C3%A3o%20de%20fachada." target="_blank" rel="noopener" class="hero-cta">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                Solicitar Orçamento pelo WhatsApp
+            </a>
+        </div>
+        <a href="#metricas" class="hero-scroll">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5M7 6l5 5 5-5"/></svg>
+            <span>Scroll</span>
+        </a>
+    </section>
+
+    <!-- MÉTRICAS -->
+    <section class="metrics" id="metricas">
+        <div class="metrics-inner">
+            <div class="metric-item reveal">
+                <div class="metric-number">500<span style="color:var(--vermelho);">+</span></div>
+                <div class="metric-label">Obras Entregues</div>
+            </div>
+            <div class="metric-item reveal reveal-delay-1">
+                <div class="metric-number">23<span style="color:var(--vermelho);">+</span></div>
+                <div class="metric-label">Anos de Experiência</div>
+            </div>
+            <div class="metric-item reveal reveal-delay-2">
+                <div class="metric-number">170.000<span style="color:var(--vermelho);">m²</span></div>
+                <div class="metric-label">Fachadas Pintadas</div>
+            </div>
+            <div class="metric-item reveal reveal-delay-3">
+                <div class="metric-number">24<span style="color:var(--vermelho);">h</span></div>
+                <div class="metric-label">Resposta para Orçamentos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="about" id="sobre">
+        <div class="about-inner">
+            <div class="about-content reveal">
+                <span class="about-label">Quem Somos</span>
+                <h2 class="about-title">Excelência técnica em cada metro quadrado</h2>
+                <p class="about-text">
+                    Desde 2003, atuamos no mercado de condomínios de médio a alto padrão, 
+                    direcionando nossos serviços para clientes que exigem elevado nível técnico, 
+                    acabamento superior e gestão eficiente de obras. Cada projeto carrega nosso 
+                    compromisso com qualidade, cuidado e respeito ao patrimônio — entregando não 
+                    apenas renovação estética, mas segurança e valorização para quem confia em 
+                    nosso trabalho.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        </div>
+                        <span class="about-feature-text">Processos certificados e equipe qualificada</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        </div>
+                        <span class="about-feature-text">Gestão em tempo real do andamento da obra</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <span class="about-feature-text">Segurança e conformidade em todas as etapas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual reveal reveal-delay-2">
+                <div class="about-visual-frame">
+                    <img src="img/portfolio/portfolio-01.jpg" alt="Ed. Bosque — Pintura de Fachada em Sorocaba">
+                </div>
+                <div class="about-visual-badge">
+                    <div class="about-visual-badge-number">23</div>
+                    <div class="about-visual-badge-text">anos de experiência<br>no mercado</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="services" id="servicos">
+        <div class="services-inner">
+            <div class="section-header reveal">
+                <span class="section-label">Nossos Serviços</span>
+                <h2 class="section-title">Soluções completas para fachadas</h2>
+                <p class="section-subtitle">
+                    Oferecemos um portfólio integrado de serviços especializados, 
+                    desde a pintura até a restauração estrutural, sempre com foco em durabilidade e acabamento.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <h3 class="service-title">Pintura de Fachada</h3>
+                    <p class="service-desc">Renovação completa com produtos de alta performance, preparo de superfície e acabamento impecável para condomínios.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3 class="service-title">Restauração de Fachada</h3>
+                    <p class="service-desc">Recuperação estrutural e estética de fachadas degradadas, incluindo troca de revestimentos e retrofit completo.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                    </div>
+                    <h3 class="service-title">Lavagem de Fachada</h3>
+                    <p class="service-desc">Limpeza especializada de peles de vidro, pastilhas e revestimentos com técnicas que preservam o material original.</p>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                    </div>
+                    <h3 class="service-title">Tratamento de Fissuras</h3>
+                    <p class="service-desc">Diagnóstico técnico e intervenção precisa em trincas e fissuras, prevenindo infiltrações e danos estruturais.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                    </div>
+                    <h3 class="service-title">Rejuntamento de Pastilhas</h3>
+                    <p class="service-desc">Substituição e rejuntamento de pastilhas cerâmicas e de vidro com acabamento uniforme e duradouro.</p>
+                </div>
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                    </div>
+                    <h3 class="service-title">Pintura de Estacionamentos</h3>
+                    <p class="service-desc">Pintura de áreas comuns, garagens e subsolos com produtos resistentes à umidade e ao tráfego intenso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section class="portfolio" id="portfolio">
+        <div class="portfolio-inner">
+            <div class="section-header reveal">
+                <span class="section-label">Portfólio</span>
+                <h2 class="section-title">Obras que falam por si</h2>
+                <p class="section-subtitle">
+                    Condomínios de referência em São Paulo e interior que confiaram 
+                    na expertise da Construlima para transformar suas fachadas.
+                </p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item reveal">
+                    <img src="img/portfolio/portfolio-01.jpg" alt="Ed. Bosque — Sorocaba, SP">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Pintura de Fachada</span>
+                        <h3 class="portfolio-title">Ed. Bosque · Sorocaba, SP</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal reveal-delay-1">
+                    <img src="img/portfolio/portfolio-02.jpeg" alt="Ed. London — São Paulo, SP">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Pintura e Restauração</span>
+                        <h3 class="portfolio-title">Ed. London · São Paulo, SP</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal reveal-delay-2">
+                    <img src="img/portfolio/portfolio-03.jpg" alt="Hotel Holiday-Inn — São Paulo, SP">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Grande Porte</span>
+                        <h3 class="portfolio-title">Hotel Holiday-Inn · São Paulo, SP</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal">
+                    <img src="img/portfolio/portfolio-04.jpg" alt="Ed. W.Torre — São Paulo, SP">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Lavagem · Pele de Vidro</span>
+                        <h3 class="portfolio-title">Ed. W.Torre · São Paulo, SP</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal reveal-delay-1">
+                    <img src="img/portfolio/portfolio-05.jpg" alt="Ed. Pablo Picasso — São Paulo, SP">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Tratamento de Fissuras</span>
+                        <h3 class="portfolio-title">Ed. Pablo Picasso · São Paulo, SP</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal reveal-delay-2">
+                    <img src="img/portfolio/portfolio-06.jpeg" alt="Ed. Double Office — São Paulo, SP">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Estacionamento</span>
+                        <h3 class="portfolio-title">Ed. Double Office · São Paulo, SP</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="differentials" id="diferenciais">
+        <div class="differentials-inner">
+            <div class="section-header reveal">
+                <span class="section-label">Por que a Construlima</span>
+                <h2 class="section-title">Diferenciais que constroem confiança</h2>
+                <p class="section-subtitle">
+                    Síndicos e administradoras escolhem a Construlima pela combinação 
+                    única de experiência, tecnologia e compromisso com resultados.
+                </p>
+            </div>
+            <div class="diff-grid">
+                <div class="diff-card reveal">
+                    <div class="diff-number">01</div>
+                    <h3 class="diff-title">Operação Garantida</h3>
+                    <p class="diff-text">Equipe qualificada, processos definidos e controle em todas as etapas, assegurando qualidade, prazo e resultado duradouro.</p>
+                </div>
+                <div class="diff-card reveal reveal-delay-1">
+                    <div class="diff-number">02</div>
+                    <h3 class="diff-title">Tecnologia Aplicada</h3>
+                    <p class="diff-text">Sistema integrado em todas as operações com o escritório central. Gestão em tempo real do andamento da obra.</p>
+                </div>
+                <div class="diff-card reveal reveal-delay-2">
+                    <div class="diff-number">03</div>
+                    <h3 class="diff-title">Experiência Comprovada</h3>
+                    <p class="diff-text">Mais de 170.000 m² de fachadas executadas em condomínios de referência em São Paulo e interior.</p>
+                </div>
+                <div class="diff-card reveal reveal-delay-3">
+                    <div class="diff-number">04</div>
+                    <h3 class="diff-title">Atendimento Ágil</h3>
+                    <p class="diff-text">Resposta em até 24 horas para solicitações de orçamento. Síndico atendido diretamente, sem intermediários.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contato">
+        <div class="cta-inner">
+            <h2 class="cta-title reveal">Tire suas dúvidas com a Janaina</h2>
+            <p class="cta-text reveal reveal-delay-1">
+                Entre em contato pelo WhatsApp e receba um atendimento direto, 
+                sem intermediários. Respondemos em até 24 horas em horário comercial.
+            </p>
+            <a href="https://wa.me/5515996547841?text=Ol%C3%A1%2C%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20os%20servi%C3%A7os%20da%20Construlima." target="_blank" rel="noopener" class="cta-button reveal reveal-delay-2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                Fale Conosco pelo WhatsApp
+            </a>
+            <p class="cta-contact reveal reveal-delay-3">
+                Atendimento de <strong>segunda a sexta, 8h às 17h</strong> · Grande São Paulo e interior
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="img/logo-vertical.jpeg" alt="Construlima Engenharia">
+                    <p>Pintura e restauração de fachada em condomínios de médio e alto padrão. Desde 2003, transformando patrimônios.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Navegação</h4>
+                    <ul class="footer-links">
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#portfolio">Portfólio</a></li>
+                        <li><a href="#diferenciais">Diferenciais</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Serviços</h4>
+                    <ul class="footer-links">
+                        <li><a href="#servicos">Pintura de Fachada</a></li>
+                        <li><a href="#servicos">Restauração</a></li>
+                        <li><a href="#servicos">Lavagem</a></li>
+                        <li><a href="#servicos">Tratamento de Fissuras</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Contato</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="https://wa.me/5515996547841" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                                +55 15 99654-7841
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/construlimaengenharia" target="_blank" rel="noopener">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                @construlimaengenharia
+                            </a>
+                        </li>
+                        <li>
+                            <span style="color:rgba(255,255,255,0.35);font-size:0.9375rem;display:inline-flex;align-items:center;gap:8px;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                Seg–Sex, 8h às 17h
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026 Construlima Engenharia. Todos os direitos reservados.</p>
+                <div class="footer-social">
+                    <a href="https://wa.me/5515996547841" target="_blank" rel="noopener" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/construlimaengenharia" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/5515996547841?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener" class="float-whatsapp" aria-label="Orçamento pelo WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span>Orçamento</span>
+    </a>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Intersection Observer for reveal animations
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu close on link click
+        document.querySelectorAll('.header-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.header-nav').classList.remove('mobile-open');
+            });
+        });
+    </script>
+
+</body>
+</html>
