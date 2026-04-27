@@ -231,7 +231,7 @@
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.50);
+            background: rgba(0, 0, 0, 0.35);
             z-index: 2;
         }
 
@@ -775,6 +775,104 @@
             line-height: 1.7;
         }
 
+        /* ===== DEPOIMENTOS ===== */
+        .testimonials {
+            background: var(--neutro-100);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: -220px;
+            left: -220px;
+            width: 520px;
+            height: 520px;
+            background: radial-gradient(circle, rgba(46, 123, 181, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .testimonials-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 110px 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 48px;
+            align-items: center;
+            background: var(--branco);
+            border: 1px solid var(--neutro-200);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: var(--sombra-media);
+        }
+
+        .testimonial-copy {
+            padding: 16px 8px 16px 16px;
+        }
+
+        .testimonial-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: var(--azul-aco-claro);
+            color: var(--azul-aco);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .testimonial-kicker {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--azul-aco);
+            margin-bottom: 16px;
+        }
+
+        .testimonial-title {
+            font-size: clamp(1.6rem, 3vw, 2.35rem);
+            font-weight: 700;
+            color: var(--azul-profundo);
+            margin-bottom: 18px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--neutro-600);
+            line-height: 1.75;
+        }
+
+        .testimonial-video {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--azul-profundo);
+            box-shadow: var(--sombra-forte);
+        }
+
+        .testimonial-video video {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            background: var(--azul-profundo);
+        }
+
         /* ===== CTA SECTION ===== */
         .cta-section {
             background: linear-gradient(135deg, var(--azul-aco) 0%, var(--azul-aco-escuro) 100%);
@@ -1051,6 +1149,11 @@
                 aspect-ratio: 16/9;
             }
 
+            .testimonial-card {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
             .footer-grid {
                 grid-template-columns: 1fr 1fr;
             }
@@ -1058,6 +1161,40 @@
 
         @media (max-width: 768px) {
             .header-nav {
+                position: absolute;
+                top: 72px;
+                left: 20px;
+                right: 20px;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 12px;
+                background: rgba(255, 255, 255, 0.98);
+                border: 1px solid rgba(46, 123, 181, 0.12);
+                border-radius: 14px;
+                box-shadow: var(--sombra-media);
+            }
+
+            .header-nav.mobile-open {
+                display: flex;
+            }
+
+            .header-nav a {
+                min-height: 56px;
+                display: flex;
+                align-items: center;
+                color: var(--azul-profundo);
+                padding: 0 16px;
+                border-radius: 10px;
+            }
+
+            .header-nav a:hover {
+                color: var(--azul-aco);
+                background: var(--azul-aco-claro);
+            }
+
+            .header-nav a::after {
                 display: none;
             }
 
@@ -1065,8 +1202,28 @@
                 display: none;
             }
 
+            .header-nav.mobile-open .header-cta {
+                display: inline-flex;
+                justify-content: center;
+                color: var(--branco);
+                margin-top: 8px;
+                min-height: 52px;
+            }
+
             .menu-toggle {
                 display: block;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
             }
 
             .hero-content {
@@ -1109,6 +1266,18 @@
 
             .diff-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .testimonials-inner {
+                padding: 80px 24px;
+            }
+
+            .testimonial-card {
+                padding: 20px;
+            }
+
+            .testimonial-copy {
+                padding: 8px 4px 4px;
             }
 
             .footer-grid {
@@ -1197,12 +1366,13 @@
                 <a href="#servicos">Serviços</a>
                 <a href="#portfolio">Portfólio</a>
                 <a href="#diferenciais">Diferenciais</a>
+                <a href="#depoimentos">Depoimentos</a>
                 <a href="#contato" class="header-cta">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
                     Orçamento
                 </a>
             </nav>
-            <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.header-nav').classList.toggle('mobile-open')">
+            <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1380,46 +1550,95 @@
                 </p>
             </div>
             <div class="portfolio-grid">
-                <div class="portfolio-item reveal">
-                    <img src="img/portfolio/portfolio-01.jpg" alt="Ed. Bosque — Sorocaba, SP">
+                <div class="portfolio-item reveal reveal-delay-1">
+                    <img src="img/portfolio/portfolio-01.jpg" alt="Ed. Bosque — Sorocaba, SP" loading="lazy">
                     <div class="portfolio-overlay">
                         <span class="portfolio-tag">Pintura de Fachada</span>
                         <h3 class="portfolio-title">Ed. Bosque · Sorocaba, SP</h3>
                     </div>
                 </div>
-                <div class="portfolio-item reveal reveal-delay-1">
-                    <img src="img/portfolio/portfolio-02.jpeg" alt="Ed. London — São Paulo, SP">
+                <div class="portfolio-item reveal reveal-delay-2">
+                    <img src="img/portfolio/portfolio-02.jpg" alt="Ed. London — São Paulo, SP" loading="lazy">
                     <div class="portfolio-overlay">
                         <span class="portfolio-tag">Pintura e Restauração</span>
                         <h3 class="portfolio-title">Ed. London · São Paulo, SP</h3>
                     </div>
                 </div>
-                <div class="portfolio-item reveal reveal-delay-2">
-                    <img src="img/portfolio/portfolio-03.jpg" alt="Hotel Holiday-Inn — São Paulo, SP">
+                <div class="portfolio-item reveal">
+                    <img src="img/portfolio/portfolio-03.jpg" alt="Ed. Barra do Sahy — São Paulo, SP" loading="lazy">
                     <div class="portfolio-overlay">
-                        <span class="portfolio-tag">Grande Porte</span>
+                        <span class="portfolio-tag">Pintura de Fachada</span>
+                        <h3 class="portfolio-title">Ed. Barra do Sahy · São Paulo, SP</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal reveal-delay-1">
+                    <img src="img/portfolio/portfolio-04.jpg" alt="Hotel Holiday-Inn — São Paulo, SP" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Pintura de Fachada</span>
                         <h3 class="portfolio-title">Hotel Holiday-Inn · São Paulo, SP</h3>
                     </div>
                 </div>
+                <div class="portfolio-item reveal reveal-delay-2">
+                    <img src="img/portfolio/portfolio-05.jpg" alt="Ed. Manhantan — Alphaville, SP" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Restauração de Gaill</span>
+                        <h3 class="portfolio-title">Ed. Manhantan · Alphaville, SP</h3>
+                    </div>
+                </div>
                 <div class="portfolio-item reveal">
-                    <img src="img/portfolio/portfolio-04.jpg" alt="Ed. W.Torre — São Paulo, SP">
+                    <img src="img/portfolio/portfolio-06.jpg" alt="Ed. JBG — São Paulo, SP" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Pintura de Fachada</span>
+                        <h3 class="portfolio-title">Ed. JBG · São Paulo, SP</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal reveal-delay-1">
+                    <img src="img/portfolio/portfolio-07.jpg" alt="Conjunto Sumaré — São Paulo, SP" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Troca de Reboco</span>
+                        <h3 class="portfolio-title">Conj. Sumaré · São Paulo, SP</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal reveal-delay-2">
+                    <img src="img/portfolio/portfolio-08.jpg" alt="Ed. W.Torre — São Paulo, SP" loading="lazy">
                     <div class="portfolio-overlay">
                         <span class="portfolio-tag">Lavagem · Pele de Vidro</span>
                         <h3 class="portfolio-title">Ed. W.Torre · São Paulo, SP</h3>
                     </div>
                 </div>
+                <div class="portfolio-item reveal">
+                    <img src="img/portfolio/portfolio-09.jpg" alt="Hotel Holiday-Inn — São Paulo, SP" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Pintura e Rejuntamento</span>
+                        <h3 class="portfolio-title">Hotel Holiday-Inn · São Paulo, SP</h3>
+                    </div>
+                </div>
                 <div class="portfolio-item reveal reveal-delay-1">
-                    <img src="img/portfolio/portfolio-05.jpg" alt="Ed. Pablo Picasso — São Paulo, SP">
+                    <img src="img/portfolio/portfolio-10.jpg" alt="Ed. Pablo Picasso — São Paulo, SP" loading="lazy">
                     <div class="portfolio-overlay">
                         <span class="portfolio-tag">Tratamento de Fissuras</span>
                         <h3 class="portfolio-title">Ed. Pablo Picasso · São Paulo, SP</h3>
                     </div>
                 </div>
                 <div class="portfolio-item reveal reveal-delay-2">
-                    <img src="img/portfolio/portfolio-06.jpeg" alt="Ed. Double Office — São Paulo, SP">
+                    <img src="img/portfolio/portfolio-11.jpg" alt="Ed. Bandeirantes — Jundiaí, SP" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Restauração de Fachada</span>
+                        <h3 class="portfolio-title">Ed. Bandeirantes · Jundiaí, SP</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal">
+                    <img src="img/portfolio/portfolio-12.jpg" alt="Ed. Double Office Santana — São Paulo, SP" loading="lazy">
                     <div class="portfolio-overlay">
                         <span class="portfolio-tag">Estacionamento</span>
-                        <h3 class="portfolio-title">Ed. Double Office · São Paulo, SP</h3>
+                        <h3 class="portfolio-title">Ed. Double Office Santana · São Paulo, SP</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal reveal-delay-1">
+                    <img src="img/portfolio/portfolio-13.jpg" alt="Ed. Icon — São Paulo, SP" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="portfolio-tag">Troca de Revestimento Gaill</span>
+                        <h3 class="portfolio-title">Ed. Icon · São Paulo, SP</h3>
                     </div>
                 </div>
             </div>
@@ -1462,10 +1681,35 @@
         </div>
     </section>
 
+
+    <!-- DEPOIMENTOS -->
+    <section class="testimonials" id="depoimentos">
+        <div class="testimonials-inner">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-copy">
+                    <div class="testimonial-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg>
+                    </div>
+                    <span class="testimonial-kicker">Depoimentos de clientes</span>
+                    <h2 class="testimonial-title">Quem contrata, acompanha de perto a seriedade da entrega.</h2>
+                    <p class="testimonial-text">
+                        Confira o relato de cliente sobre a experiência com a Construlima em obras de fachada, restauração e manutenção predial.
+                    </p>
+                </div>
+                <div class="testimonial-video">
+                    <video controls preload="metadata" playsinline>
+                        <source src="video/depoimento-clientes.mp4" type="video/mp4">
+                        Seu navegador não suporta a reprodução deste vídeo.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA -->
     <section class="cta-section" id="contato">
         <div class="cta-inner">
-            <h2 class="cta-title reveal">Tire suas dúvidas com a Janaina</h2>
+            <h2 class="cta-title reveal">Tire suas dúvidas com um de nossos especialistas</h2>
             <p class="cta-text reveal reveal-delay-1">
                 Entre em contato pelo WhatsApp e receba um atendimento direto, 
                 sem intermediários. Respondemos em até 24 horas em horário comercial.
@@ -1495,6 +1739,7 @@
                         <li><a href="#servicos">Serviços</a></li>
                         <li><a href="#portfolio">Portfólio</a></li>
                         <li><a href="#diferenciais">Diferenciais</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1593,10 +1838,25 @@
             });
         });
 
-        // Mobile menu close on link click
+        // Mobile menu
+        const menuButton = document.querySelector('.menu-toggle');
+        const headerNav = document.querySelector('.header-nav');
+
+        if (menuButton && headerNav) {
+            menuButton.addEventListener('click', () => {
+                const isOpen = headerNav.classList.toggle('mobile-open');
+                menuButton.classList.toggle('active', isOpen);
+                menuButton.setAttribute('aria-expanded', String(isOpen));
+                menuButton.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+            });
+        }
+
         document.querySelectorAll('.header-nav a').forEach(link => {
             link.addEventListener('click', () => {
-                document.querySelector('.header-nav').classList.remove('mobile-open');
+                headerNav?.classList.remove('mobile-open');
+                menuButton?.classList.remove('active');
+                menuButton?.setAttribute('aria-expanded', 'false');
+                menuButton?.setAttribute('aria-label', 'Abrir menu');
             });
         });
     </script>
